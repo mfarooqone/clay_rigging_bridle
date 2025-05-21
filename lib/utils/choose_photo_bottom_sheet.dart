@@ -1,6 +1,5 @@
+import 'package:clay_rigging_bridle/utils/app_colors.dart';
 import 'package:flutter/material.dart';
-
-import 'theme/constants/app_constants.dart';
 
 class ChoosePhotoBottomSheet extends StatelessWidget {
   const ChoosePhotoBottomSheet({

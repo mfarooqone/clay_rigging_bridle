@@ -1,5 +1,5 @@
 import 'package:clay_rigging_bridle/utils/app_text_styles.dart';
-import 'package:clay_rigging_bridle/utils/theme/constants/app_constants.dart';
+import 'package:clay_rigging_bridle/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
