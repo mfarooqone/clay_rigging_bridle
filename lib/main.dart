@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:clay_rigging_bridle/app_bindings.dart';
 import 'package:clay_rigging_bridle/common/controllers/preference_controller.dart';
+import 'package:clay_rigging_bridle/features/splash_screen/test_screen.dart';
 import 'package:clay_rigging_bridle/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +48,7 @@ class _MyAppState extends State<MyApp> {
       initialBinding: createBindings(context),
       navigatorObservers: [routeObserver],
       // home: SubscriptionPage(),
-      home: Container(),
+      home: TestScreen(),
       builder: (context, child) {
         return MediaQuery(
           data: MediaQuery.of(
