@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:clay_rigging_bridle/app_bindings.dart';
 import 'package:clay_rigging_bridle/common/controllers/preference_controller.dart';
 import 'package:clay_rigging_bridle/features/splash_screen/test_screen.dart';
 import 'package:clay_rigging_bridle/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 
 final RouteObserver<ModalRoute<void>> routeObserver =
@@ -20,7 +20,7 @@ void main() async {
       )
       : await Firebase.initializeApp();
 
-  runApp(const MyApp());
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -42,10 +42,10 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       title: 'Nobese',
       debugShowCheckedModeBanner: false,
-      initialBinding: createBindings(context),
+      // initialBinding: createBindings(context),
       navigatorObservers: [routeObserver],
       // home: SubscriptionPage(),
       home: TestScreen(),
