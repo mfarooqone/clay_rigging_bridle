@@ -39,10 +39,7 @@ class _ComplexUDLState extends State<ComplexUDL> {
                   children: [
                     ArrowBackButton(),
                     Spacer(),
-                    Text(
-                      "Breasting Line Calculator",
-                      style: AppTextStyle.titleSmall,
-                    ),
+                    Text("ComplexUDL", style: AppTextStyle.titleSmall),
                     Spacer(),
                     ArrowBackButton(color: Colors.transparent),
                   ],

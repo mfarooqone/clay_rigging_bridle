@@ -4,22 +4,22 @@ import 'package:clay_rigging_bridle/widgets/arrow_back_button.dart';
 import 'package:clay_rigging_bridle/widgets/primary_text_field.dart';
 import 'package:flutter/material.dart';
 
-class UDL extends StatefulWidget {
-  const UDL({Key? key}) : super(key: key);
+class Cantivlever extends StatefulWidget {
+  const Cantivlever({Key? key}) : super(key: key);
 
   @override
-  State<UDL> createState() => _UDLState();
+  State<Cantivlever> createState() => _CantivleverState();
 }
 
-class _UDLState extends State<UDL> {
+class _CantivleverState extends State<Cantivlever> {
   final aController = TextEditingController();
   final bController = TextEditingController();
   final w1Controller = TextEditingController();
   final w2Controller = TextEditingController();
-  final beamController = TextEditingController();
   final totalWeightController = TextEditingController();
-  final pointAController = TextEditingController();
-  final pointBController = TextEditingController();
+  final aTobController = TextEditingController();
+  final bToWController = TextEditingController();
+  final aToCGController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class _UDLState extends State<UDL> {
                   children: [
                     ArrowBackButton(),
                     Spacer(),
-                    Text("UDL", style: AppTextStyle.titleSmall),
+                    Text("Cantivlever", style: AppTextStyle.titleSmall),
                     Spacer(),
                     ArrowBackButton(color: Colors.transparent),
                   ],
@@ -55,12 +55,12 @@ class _UDLState extends State<UDL> {
                 height: 600, // Fixed height for consistent layout
                 child: Stack(
                   children: [
-                    Positioned.fill(child: Image.asset(AppAssets.udl)),
+                    Positioned.fill(child: Image.asset(AppAssets.cantivlever)),
 
                     /// Exact manual placements
                     Positioned(
-                      top: 62,
-                      left: 38,
+                      top: 74,
+                      left: 15,
                       child: PrimaryTextField(
                         width: 70,
                         height: 25,
@@ -70,8 +70,8 @@ class _UDLState extends State<UDL> {
                       ),
                     ),
                     Positioned(
-                      top: 62,
-                      left: 250,
+                      top: 74,
+                      left: 165,
                       child: PrimaryTextField(
                         width: 70,
                         height: 25,
@@ -83,8 +83,8 @@ class _UDLState extends State<UDL> {
 
                     ///
                     Positioned(
-                      top: 178,
-                      left: 38,
+                      top: 180,
+                      left: 13,
                       child: PrimaryTextField(
                         width: 70,
                         height: 20,
@@ -96,8 +96,8 @@ class _UDLState extends State<UDL> {
 
                     ///
                     Positioned(
-                      top: 178,
-                      left: 254,
+                      top: 180,
+                      left: 165,
                       child: PrimaryTextField(
                         width: 70,
                         height: 20,
@@ -109,52 +109,52 @@ class _UDLState extends State<UDL> {
 
                     ///
                     Positioned(
-                      top: 222,
-                      left: 144,
+                      top: 262,
+                      left: 75,
                       child: PrimaryTextField(
                         width: 70,
                         height: 25,
-                        controller: beamController,
-                        hintText: 'Beam',
+                        controller: aTobController,
+                        hintText: 'A to B',
                         maxLength: 2,
                       ),
                     ),
 
                     ///
                     Positioned(
-                      top: 422,
-                      left: 144,
+                      top: 262,
+                      left: 244,
+                      child: PrimaryTextField(
+                        width: 70,
+                        height: 25,
+                        controller: bToWController,
+                        hintText: 'B to W',
+                        maxLength: 2,
+                      ),
+                    ),
+
+                    ///
+                    Positioned(
+                      top: 400,
+                      left: 100,
+                      child: PrimaryTextField(
+                        width: 70,
+                        height: 25,
+                        controller: aToCGController,
+                        hintText: 'A to CG',
+                        maxLength: 2,
+                      ),
+                    ),
+
+                    ///
+                    Positioned(
+                      top: 490,
+                      left: 245,
                       child: PrimaryTextField(
                         width: 70,
                         height: 25,
                         controller: totalWeightController,
                         hintText: 'Total Weight',
-                        maxLength: 2,
-                      ),
-                    ),
-
-                    ///
-                    Positioned(
-                      top: 488,
-                      left: 55,
-                      child: PrimaryTextField(
-                        width: 70,
-                        height: 25,
-                        controller: pointAController,
-                        hintText: 'Point A',
-                        maxLength: 2,
-                      ),
-                    ),
-
-                    ///
-                    Positioned(
-                      top: 488,
-                      left: 235,
-                      child: PrimaryTextField(
-                        width: 70,
-                        height: 25,
-                        controller: pointBController,
-                        hintText: 'Point B',
                         maxLength: 2,
                       ),
                     ),

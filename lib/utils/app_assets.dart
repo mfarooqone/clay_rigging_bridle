@@ -16,4 +16,5 @@ class AppAssets {
   static const String breastingLine = "assets/images/breasting_line.png";
   static const String udl = "assets/images/udl.png";
   static const String complexUDL = "assets/images/complex_udl.png";
+  static const String cantivlever = "assets/images/cantivlever.png";
 }

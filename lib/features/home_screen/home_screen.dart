@@ -1,4 +1,5 @@
 import 'package:clay_rigging_bridle/features/home_screen/breasting_line/breasting_line.dart';
+import 'package:clay_rigging_bridle/features/home_screen/cantivlever/cantivlever.dart';
 import 'package:clay_rigging_bridle/features/home_screen/complex_udl/complex_udl.dart';
 import 'package:clay_rigging_bridle/features/home_screen/udl/udl.dart';
 import 'package:clay_rigging_bridle/utils/app_colors.dart';
@@ -159,6 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
         break;
       case 'Cantivlever':
         // Get.toNamed('/cantivlever');
+        Get.to(() => Cantivlever());
         break;
       case 'Breasting Line':
         Get.to(() => BreastingLine());
