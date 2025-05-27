@@ -19,5 +19,5 @@ class AppAssets {
   static const String cantivlever = "assets/images/cantivlever.png";
   static const String weightShifting = "assets/images/weight_shifting.png";
   static const String bridleLeg = "assets/images/bridle_leg.png";
-  static const String bridleApex = "assets/images/bridleApex.png";
+  static const String bridleApex = "assets/images/bridle_apex.png";
 }

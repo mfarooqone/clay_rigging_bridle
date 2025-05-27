@@ -1,4 +1,5 @@
 import 'package:clay_rigging_bridle/features/home_screen/breasting_line/breasting_line.dart';
+import 'package:clay_rigging_bridle/features/home_screen/bridle_apex/bridle_apex.dart';
 import 'package:clay_rigging_bridle/features/home_screen/bridle_leg/bridle_leg.dart';
 import 'package:clay_rigging_bridle/features/home_screen/cantivlever/cantivlever.dart';
 import 'package:clay_rigging_bridle/features/home_screen/complex_udl/complex_udl.dart';
@@ -149,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Get.to(() => BridleLeg());
         break;
       case 'Bridle Apex and Point Position':
-        // Get.toNamed('/apexAndPoint');
+        Get.to(() => BridleApex());
         break;
       case 'Weight Shifting':
         Get.to(() => WeightShifting());
@@ -161,14 +162,12 @@ class _HomeScreenState extends State<HomeScreen> {
         Get.to(() => ComplexUDL());
         break;
       case 'Cantivlever':
-        // Get.toNamed('/cantivlever');
         Get.to(() => Cantivlever());
         break;
       case 'Breasting Line':
         Get.to(() => BreastingLine());
         break;
       case 'Calculator':
-        // Get.toNamed('/calculator');
         break;
       default:
         showErrorMessage("Invalid screen selected");
