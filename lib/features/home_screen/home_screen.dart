@@ -3,12 +3,11 @@ import 'package:clay_rigging_bridle/features/home_screen/bridle_apex/bridle_apex
 import 'package:clay_rigging_bridle/features/home_screen/bridle_leg/bridle_leg.dart';
 import 'package:clay_rigging_bridle/features/home_screen/cantivlever/cantivlever.dart';
 import 'package:clay_rigging_bridle/features/home_screen/complex_udl/complex_udl.dart';
+import 'package:clay_rigging_bridle/features/home_screen/information/information.dart';
 import 'package:clay_rigging_bridle/features/home_screen/udl/udl.dart';
 import 'package:clay_rigging_bridle/features/home_screen/weight_shifting/weight_shifting.dart';
-import 'package:clay_rigging_bridle/utils/app_colors.dart';
 import 'package:clay_rigging_bridle/utils/app_text_styles.dart';
 import 'package:clay_rigging_bridle/utils/show_snackbar.dart';
-import 'package:clay_rigging_bridle/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -53,88 +52,43 @@ class _HomeScreenState extends State<HomeScreen> {
                   ///
                   ///
                   Text(
-                    'Rigging Bridle Calculator',
+                    'Entertainment Rigging Calculator+',
                     style: AppTextStyle.headlineSmall,
                   ),
 
                   ///
                   ///
                   ///
-                  SizedBox(
-                    width: 312,
-                    child: Text(
-                      'Welcome to the ultimate tool for calculating rigging bridle load distributions with precision and confidence',
-                      style: AppTextStyle.bodyMedium.copyWith(
-                        color: const Color(0xFF4A4F4E),
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ),
+                  ///
+                  Expanded(
+                    child: GridView.builder(
+                      shrinkWrap: true,
 
-                  ///
-                  ///
-                  SizedBox(height: height * 0.05),
-                  Text('Calculator', style: AppTextStyle.titleMedium),
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      itemCount: controller.screensList.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            childAspectRatio: 1,
+                            crossAxisSpacing: 1,
+                            mainAxisSpacing: 1,
+                          ),
+                      itemBuilder: (context, index) {
+                        final item = controller.screensList[index];
 
-                  ///
-                  ///
-                  ///
-                  ///
-                  DropdownButton<String>(
-                    hint: Text(
-                      "Select Calculator",
-                      style: AppTextStyle.bodyMedium.copyWith(
-                        color: AppColors.greyColor, // Hint text color
-                      ),
-                    ),
-                    value: controller.selectedScreen.value,
-                    isExpanded: true,
-                    items:
-                        controller.screensList.map((String type) {
-                          return DropdownMenuItem(
-                            value: type,
-                            child: Text(
-                              type,
-                              style: TextStyle(
-                                color:
-                                    type == "Select Calculator"
-                                        ? AppColors.greyColor
-                                        : Colors
-                                            .black, // Apply grey color to the hint
-                              ),
-                            ),
-                          );
-                        }).toList(),
-                    onChanged: (newValue) {
-                      if (newValue != null) {
-                        controller.isLoading.value = true;
-                        controller.selectedScreen(newValue);
-                        controller.isLoading.value = false;
-                      }
-                    },
-                    underline: Container(
-                      height: 1,
-                      color: AppColors.primaryColor,
-                    ),
-                  ),
-                  Spacer(),
-                  Center(
-                    child: PrimaryButton(
-                      onPressed: () {
-                        if (controller.selectedScreen.value ==
-                            "Select Calculator") {
-                          showErrorMessage("Please select a calculator");
-                        } else {
-                          // Get.to(() => BreastingLine());
-                          navigateToScreen(
-                            selectedScreen: controller.selectedScreen.value,
-                          );
-                        }
+                        return GestureDetector(
+                          onTap: () {
+                            navigateToScreen(index: index);
+                          },
+                          child: Container(
+                            width: 122,
+                            height: 122,
+                            child: Image.asset(item, fit: BoxFit.contain),
+                          ),
+                        );
                       },
-                      title: "Next",
                     ),
                   ),
-                  SizedBox(height: height * 0.05),
                 ],
               ),
             ),
@@ -144,30 +98,32 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  void navigateToScreen({required String selectedScreen}) {
-    switch (selectedScreen) {
-      case 'Bridle Leg Length':
+  void navigateToScreen({required int index}) {
+    switch (index) {
+      case 0:
+        Get.to(() => InformationScreen());
+      case 1:
         Get.to(() => BridleLeg());
         break;
-      case 'Bridle Apex and Point Position':
+      case 2:
         Get.to(() => BridleApex());
         break;
-      case 'Weight Shifting':
+      case 3:
         Get.to(() => WeightShifting());
         break;
-      case 'UDL':
+      case 4:
         Get.to(() => UDL());
         break;
-      case 'Complex UDL':
+      case 5:
         Get.to(() => ComplexUDL());
         break;
-      case 'Cantivlever':
+      case 6:
         Get.to(() => Cantivlever());
         break;
-      case 'Breasting Line':
+      case 7:
         Get.to(() => BreastingLine());
         break;
-      case 'Calculator':
+      case 8:
         break;
       default:
         showErrorMessage("Invalid screen selected");
