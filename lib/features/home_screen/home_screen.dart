@@ -1,4 +1,5 @@
 import 'package:clay_rigging_bridle/features/home_screen/breasting_line/breasting_line.dart';
+import 'package:clay_rigging_bridle/features/home_screen/udl/udl.dart';
 import 'package:clay_rigging_bridle/utils/app_colors.dart';
 import 'package:clay_rigging_bridle/utils/app_text_styles.dart';
 import 'package:clay_rigging_bridle/utils/show_snackbar.dart';
@@ -119,10 +120,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             "Select Calculator") {
                           showErrorMessage("Please select a calculator");
                         } else {
-                          Get.to(() => BreastingLine());
-                          // navigateToScreen(
-                          //   selectedScreen: controller.selectedScreen.value,
-                          // );
+                          // Get.to(() => BreastingLine());
+                          navigateToScreen(
+                            selectedScreen: controller.selectedScreen.value,
+                          );
                         }
                       },
                       title: "Next",
@@ -141,28 +142,29 @@ class _HomeScreenState extends State<HomeScreen> {
   void navigateToScreen({required String selectedScreen}) {
     switch (selectedScreen) {
       case 'Bridle Leg Length':
-        Get.toNamed('/bridleLegLength');
+        // Get.toNamed('/bridleLegLength');
         break;
       case 'Bridle Apex and Point Position':
-        Get.toNamed('/apexAndPoint');
+        // Get.toNamed('/apexAndPoint');
         break;
       case 'Weight Shifting':
-        Get.toNamed('/weightShifting');
+        // Get.toNamed('/weightShifting');
         break;
       case 'UDL':
-        Get.toNamed('/udl');
+        Get.to(() => UDL());
+        // Get.toNamed('/udl');
         break;
       case 'Complex UDL':
-        Get.toNamed('/complexUdl');
+        // Get.toNamed('/complexUdl');
         break;
       case 'Cantivlever':
-        Get.toNamed('/cantivlever');
+        // Get.toNamed('/cantivlever');
         break;
       case 'Breasting Line':
-        Get.toNamed('/breastingLine');
+        Get.to(() => BreastingLine());
         break;
       case 'Calculator':
-        Get.toNamed('/calculator');
+        // Get.toNamed('/calculator');
         break;
       default:
         showErrorMessage("Invalid screen selected");

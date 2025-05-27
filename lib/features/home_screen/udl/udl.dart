@@ -4,20 +4,22 @@ import 'package:clay_rigging_bridle/widgets/arrow_back_button.dart';
 import 'package:clay_rigging_bridle/widgets/primary_text_field.dart';
 import 'package:flutter/material.dart';
 
-class BreastingLine extends StatefulWidget {
-  const BreastingLine({Key? key}) : super(key: key);
+class UDL extends StatefulWidget {
+  const UDL({Key? key}) : super(key: key);
 
   @override
-  State<BreastingLine> createState() => _BreastingLineState();
+  State<UDL> createState() => _UDLState();
 }
 
-class _BreastingLineState extends State<BreastingLine> {
-  final aToBController = TextEditingController();
-  final aToXController = TextEditingController();
-  final phToBlController = TextEditingController();
-  final l1Controller = TextEditingController();
-  final horizontalForceController = TextEditingController();
-  final weightController = TextEditingController();
+class _UDLState extends State<UDL> {
+  final aController = TextEditingController();
+  final bController = TextEditingController();
+  final w1Controller = TextEditingController();
+  final w2Controller = TextEditingController();
+  final beamController = TextEditingController();
+  final totalWeightController = TextEditingController();
+  final pointAController = TextEditingController();
+  final pointBController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -56,88 +58,111 @@ class _BreastingLineState extends State<BreastingLine> {
                 height: 600, // Fixed height for consistent layout
                 child: Stack(
                   children: [
-                    Positioned.fill(
-                      child: Image.asset(AppAssets.breastingLine),
-                    ),
+                    Positioned.fill(child: Image.asset(AppAssets.udl)),
 
                     /// Exact manual placements
                     Positioned(
-                      top: 34,
-                      left: 127,
+                      top: 62,
+                      left: 38,
                       child: PrimaryTextField(
-                        width: 80,
-                        height: 20,
-                        controller: aToBController,
-                        hintText: 'A to B',
+                        width: 70,
+                        height: 25,
+                        controller: aController,
+                        hintText: 'A',
                         maxLength: 2,
                       ),
                     ),
-
                     Positioned(
-                      top: 98,
-                      left: 125,
+                      top: 62,
+                      left: 250,
                       child: PrimaryTextField(
-                        width: 46,
-                        height: 20,
-                        controller: aToXController,
-                        hintText: 'A to X',
-                        maxLength: 2,
-                      ),
-                    ),
-
-                    ///
-                    Positioned(
-                      top: 179,
-                      left: 150,
-                      child: PrimaryTextField(
-                        width: 50,
-                        height: 20,
-                        controller: l1Controller,
-                        hintText: 'L1',
+                        width: 70,
+                        height: 25,
+                        controller: bController,
+                        hintText: 'B',
                         maxLength: 2,
                       ),
                     ),
 
                     ///
-                    ///
-                    ///
                     Positioned(
-                      top: 278,
-                      left: 16,
-                      child: PrimaryTextField(
-                        width: 60,
-                        height: 20,
-                        controller: phToBlController,
-                        hintText: 'PH to BL',
-                        maxLength: 2,
-                      ),
-                    ),
-
-                    ///
-                    ///
-                    ///
-                    Positioned(
-                      top: 322,
-                      left: 299,
-                      child: PrimaryTextField(
-                        width: 50,
-                        height: 20,
-                        controller: horizontalForceController,
-                        hintText: 'Horizontal Force',
-                        maxLength: 2,
-                      ),
-                    ),
-                    Positioned(
-                      top: 461,
-                      left: 209,
+                      top: 178,
+                      left: 38,
                       child: PrimaryTextField(
                         width: 70,
                         height: 20,
-                        controller: weightController,
-                        hintText: 'Weight',
+                        controller: w1Controller,
+                        hintText: 'W1',
                         maxLength: 2,
                       ),
                     ),
+
+                    ///
+                    Positioned(
+                      top: 178,
+                      left: 254,
+                      child: PrimaryTextField(
+                        width: 70,
+                        height: 20,
+                        controller: w2Controller,
+                        hintText: 'W2',
+                        maxLength: 2,
+                      ),
+                    ),
+
+                    ///
+                    Positioned(
+                      top: 222,
+                      left: 144,
+                      child: PrimaryTextField(
+                        width: 70,
+                        height: 25,
+                        controller: beamController,
+                        hintText: 'Beam',
+                        maxLength: 2,
+                      ),
+                    ),
+
+                    ///
+                    Positioned(
+                      top: 422,
+                      left: 144,
+                      child: PrimaryTextField(
+                        width: 70,
+                        height: 25,
+                        controller: totalWeightController,
+                        hintText: 'Total Weight',
+                        maxLength: 2,
+                      ),
+                    ),
+
+                    ///
+                    Positioned(
+                      top: 488,
+                      left: 55,
+                      child: PrimaryTextField(
+                        width: 70,
+                        height: 25,
+                        controller: pointAController,
+                        hintText: 'Point A',
+                        maxLength: 2,
+                      ),
+                    ),
+
+                    ///
+                    Positioned(
+                      top: 488,
+                      left: 235,
+                      child: PrimaryTextField(
+                        width: 70,
+                        height: 25,
+                        controller: pointBController,
+                        hintText: 'Point B',
+                        maxLength: 2,
+                      ),
+                    ),
+
+                    ///
                   ],
                 ),
               ),
