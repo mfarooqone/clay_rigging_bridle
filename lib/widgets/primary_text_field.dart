@@ -13,7 +13,7 @@ class PrimaryTextField extends StatelessWidget {
   final TextCapitalization textCapitalization;
   final TextInputType? keyboardType;
   final TextInputAction inputAction;
-  final TextAlign textAlignHorizontal;
+  final TextAlign textAlign;
   final ValueChanged<String>? onSubmitted;
   final bool enable;
   final int maxLines;
@@ -32,6 +32,8 @@ class PrimaryTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final InputBorder? border;
   final double? labelFontSize;
+  final double width;
+  final double height;
 
   const PrimaryTextField({
     super.key,
@@ -42,7 +44,7 @@ class PrimaryTextField extends StatelessWidget {
     this.textCapitalization = TextCapitalization.sentences,
     this.keyboardType,
     this.inputAction = TextInputAction.done,
-    this.textAlignHorizontal = TextAlign.start,
+    this.textAlign = TextAlign.center,
     this.onSubmitted,
     this.enable = true,
     this.maxLines = 1,
@@ -61,6 +63,8 @@ class PrimaryTextField extends StatelessWidget {
     this.suffixIcon,
     this.border,
     this.labelFontSize,
+    required this.width,
+    required this.height,
   });
 
   @override
@@ -100,210 +104,54 @@ class PrimaryTextField extends StatelessWidget {
                 ),
               )
               : const SizedBox(),
-          TextField(
-            onTap: onTap,
-            obscureText: obscureText,
-            textAlignVertical: TextAlignVertical.center,
-            enabled: enable,
-            style: appTheme.textTheme.bodyMedium?.copyWith(
-              color:
-                  enable
-                      ? appTheme.iconTheme.color
-                      : appTheme.colorScheme.primaryContainer,
-            ),
-            onChanged: onChanged,
-            controller: controller,
-            maxLength: maxLength,
-            textCapitalization: textCapitalization,
-            textAlign: textAlignHorizontal,
-            keyboardType: keyboardType,
-            textInputAction: inputAction,
-            onSubmitted: onSubmitted,
-            autofocus: autoFocus,
-
-            decoration: InputDecoration(
-              hintText: hintText,
-              hintStyle: appTheme.textTheme.bodySmall,
-              prefixIcon: prefixIcon,
-              suffixIcon: suffixIcon,
-              border: border,
-              enabledBorder: border,
-              focusedBorder: border,
-              suffixIconConstraints: const BoxConstraints(
-                maxWidth: 80,
-                maxHeight: 50,
+          Container(
+            width: width,
+            height: height,
+            decoration: BoxDecoration(color: Colors.red.withValues(alpha: 0.3)),
+            child: TextField(
+              cursorHeight: 10,
+              onTap: onTap,
+              obscureText: obscureText,
+              textAlignVertical: TextAlignVertical.center,
+              enabled: enable,
+              style: appTheme.textTheme.bodyMedium?.copyWith(
+                color:
+                    enable
+                        ? appTheme.iconTheme.color
+                        : appTheme.colorScheme.primaryContainer,
               ),
+              onChanged: onChanged,
+              controller: controller,
+              maxLength: maxLength,
+              textCapitalization: textCapitalization,
+              textAlign: textAlign,
+              keyboardType: keyboardType,
+              textInputAction: inputAction,
+              onSubmitted: onSubmitted,
+              autofocus: autoFocus,
+
+              decoration: InputDecoration(
+                hintText: hintText,
+                hintStyle: appTheme.textTheme.bodySmall,
+                prefixIcon: prefixIcon,
+                suffixIcon: suffixIcon,
+                border: InputBorder.none,
+                enabledBorder: InputBorder.none,
+                focusedBorder: InputBorder.none,
+                counterText: '',
+
+                suffixIconConstraints: const BoxConstraints(
+                  maxWidth: 80,
+                  maxHeight: 50,
+                ),
+              ),
+              maxLines: maxLines,
+              focusNode: focusNode,
+              inputFormatters: textInputFormatter,
             ),
-            maxLines: maxLines,
-            focusNode: focusNode,
-            inputFormatters: textInputFormatter,
           ),
         ],
       ),
     );
-  }
-}
-
-///
-///
-///
-
-class PasswordTextField extends StatefulWidget {
-  final EdgeInsetsGeometry? margin;
-  final TextEditingController? controller;
-  final String? label;
-  final String? hintText;
-  final TextCapitalization textCapitalization;
-  final TextInputType? keyboardType;
-  final TextInputAction? inputAction;
-  final ValueChanged<String>? onSubmitted;
-  final bool enable;
-  final int maxLines;
-  final FocusNode? focusNode;
-  final bool mandatory;
-  final bool readOnly;
-  final int? maxLength;
-  final ValueChanged<String>? onChanged;
-  final VoidCallback? onTap;
-  final VoidCallback? onEditingComplete;
-  final EdgeInsets? contentPadding;
-  final List<TextInputFormatter> textInputFormatter;
-
-  const PasswordTextField({
-    super.key,
-    this.margin,
-    this.controller,
-    this.label,
-    this.hintText,
-    this.textCapitalization = TextCapitalization.none,
-    this.keyboardType,
-    this.inputAction = TextInputAction.done,
-    this.onSubmitted,
-    this.enable = true,
-    this.maxLines = 1,
-    this.focusNode,
-    this.mandatory = false,
-    this.readOnly = true,
-    this.onChanged,
-    this.maxLength,
-    this.onTap,
-    this.onEditingComplete,
-    this.contentPadding = const EdgeInsets.symmetric(vertical: 8.0),
-    this.textInputFormatter = const [],
-  });
-
-  @override
-  // ignore: library_private_types_in_public_api
-  _PasswordTextFieldState createState() => _PasswordTextFieldState();
-}
-
-class _PasswordTextFieldState extends State<PasswordTextField> {
-  bool hidePassword = true;
-  //
-  @override
-  Widget build(BuildContext context) {
-    final appTheme = Theme.of(context);
-    return Container(
-      padding: widget.contentPadding,
-      child: Column(
-        children: [
-          widget.label != null
-              ? Container(
-                margin: const EdgeInsets.only(bottom: 8.0),
-                child: Row(
-                  children: [
-                    Text(
-                      widget.label!,
-                      style: const TextStyle(
-                        fontSize: 12.0,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(width: 4.0),
-                    if (widget.mandatory)
-                      Text(
-                        '*',
-                        style: appTheme.textTheme.bodyMedium?.copyWith(
-                          color: AppColors.negativeColor,
-                          fontSize: 24.0,
-                        ),
-                      ),
-                  ],
-                ),
-              )
-              : Container(),
-          Stack(
-            children: [
-              TextField(
-                obscureText: hidePassword,
-                readOnly: widget.readOnly,
-                textAlignVertical: TextAlignVertical.center,
-                enabled: widget.enable,
-                style: appTheme.textTheme.bodyMedium,
-                onChanged: widget.onChanged,
-                onTap: widget.onTap,
-                onEditingComplete: widget.onEditingComplete,
-                controller: widget.controller,
-                maxLength: widget.maxLength,
-                textInputAction: widget.inputAction,
-                onSubmitted: widget.onSubmitted,
-                textCapitalization: widget.textCapitalization,
-                keyboardType: widget.keyboardType,
-                decoration: InputDecoration(
-                  hintText: widget.hintText,
-                  hintStyle: appTheme.textTheme.bodySmall,
-                ),
-                maxLines: widget.maxLines,
-                focusNode: widget.focusNode,
-                inputFormatters: widget.textInputFormatter,
-              ),
-              Container(
-                alignment: Alignment.centerRight,
-                child: IconButton(
-                  icon: Icon(
-                    hidePassword
-                        ? Icons.remove_red_eye
-                        : Icons.remove_red_eye_outlined,
-                    size: 18,
-                    color: appTheme.iconTheme.color,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      hidePassword = !hidePassword;
-                    });
-                  },
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class CapitalizeAllWordsFormatter extends TextInputFormatter {
-  @override
-  TextEditingValue formatEditUpdate(
-    TextEditingValue oldValue,
-    TextEditingValue newValue,
-  ) {
-    if (newValue.text.isNotEmpty) {
-      String capitalizedText = newValue.text
-          .split(' ')
-          .map((word) {
-            if (word.isNotEmpty) {
-              return word[0].toUpperCase() + word.substring(1);
-            }
-            return word;
-          })
-          .join(' ');
-
-      return newValue.copyWith(
-        text: capitalizedText,
-        selection: newValue.selection,
-      );
-    }
-    return newValue;
   }
 }

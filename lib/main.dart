@@ -1,11 +1,10 @@
 import 'dart:io';
 
 import 'package:clay_rigging_bridle/common/controllers/preference_controller.dart';
-import 'package:clay_rigging_bridle/features/splash_screen/test_screen.dart';
+import 'package:clay_rigging_bridle/features/splash_screen/splash_screen.dart';
 import 'package:clay_rigging_bridle/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 
 final RouteObserver<ModalRoute<void>> routeObserver =
@@ -20,7 +19,7 @@ void main() async {
       )
       : await Firebase.initializeApp();
 
-  runApp(ProviderScope(child: MyApp()));
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -42,13 +41,12 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Nobese',
+    return GetMaterialApp(
+      title: 'Rigging',
       debugShowCheckedModeBanner: false,
       // initialBinding: createBindings(context),
       navigatorObservers: [routeObserver],
-      // home: SubscriptionPage(),
-      home: TestScreen(),
+      home: SplashScreen(),
       builder: (context, child) {
         return MediaQuery(
           data: MediaQuery.of(

@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ArrowBackButton extends StatelessWidget {
-  const ArrowBackButton({super.key, this.onPressed});
+  const ArrowBackButton({super.key, this.onPressed, this.color});
   final VoidCallback? onPressed;
+  final Color? color;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,12 +21,16 @@ class ArrowBackButton extends StatelessWidget {
               },
           child: Container(
             decoration: BoxDecoration(
-              color: AppColors.primaryColor.withValues(alpha: 0.2),
+              color: color ?? AppColors.primaryColor.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(100),
             ),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Icon(Icons.arrow_back),
+              child: Icon(
+                Icons.arrow_back,
+                color: color ?? AppColors.black,
+                size: 24,
+              ),
             ),
           ),
         ),

@@ -4,7 +4,7 @@ class AppColors {
   static const white = Colors.white;
   static const black = Colors.black;
   static const transparent = Colors.transparent;
-  static const primaryColor = Color(0xFFF37E62);
+  static const primaryColor = Color(0xFF36A1FF);
   static const greyColor = Color(0xFF9CA5B0);
   static const sleepGradientTopColor = Color(0xFF2E2D2D);
   static const gradientDownColor = Color(0xFFC8D6DF);
