@@ -1,4 +1,5 @@
 import 'package:clay_rigging_bridle/features/home_screen/breasting_line/breasting_line.dart';
+import 'package:clay_rigging_bridle/features/home_screen/complex_udl/complex_udl.dart';
 import 'package:clay_rigging_bridle/features/home_screen/udl/udl.dart';
 import 'package:clay_rigging_bridle/utils/app_colors.dart';
 import 'package:clay_rigging_bridle/utils/app_text_styles.dart';
@@ -152,10 +153,9 @@ class _HomeScreenState extends State<HomeScreen> {
         break;
       case 'UDL':
         Get.to(() => UDL());
-        // Get.toNamed('/udl');
         break;
       case 'Complex UDL':
-        // Get.toNamed('/complexUdl');
+        Get.to(() => ComplexUDL());
         break;
       case 'Cantivlever':
         // Get.toNamed('/cantivlever');
