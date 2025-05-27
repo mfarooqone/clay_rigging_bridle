@@ -1,4 +1,5 @@
 import 'package:clay_rigging_bridle/features/home_screen/breasting_line/breasting_line.dart';
+import 'package:clay_rigging_bridle/features/home_screen/bridle_leg/bridle_leg.dart';
 import 'package:clay_rigging_bridle/features/home_screen/cantivlever/cantivlever.dart';
 import 'package:clay_rigging_bridle/features/home_screen/complex_udl/complex_udl.dart';
 import 'package:clay_rigging_bridle/features/home_screen/udl/udl.dart';
@@ -145,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void navigateToScreen({required String selectedScreen}) {
     switch (selectedScreen) {
       case 'Bridle Leg Length':
-        // Get.toNamed('/bridleLegLength');
+        Get.to(() => BridleLeg());
         break;
       case 'Bridle Apex and Point Position':
         // Get.toNamed('/apexAndPoint');
