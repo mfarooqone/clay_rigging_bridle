@@ -2,6 +2,7 @@ import 'package:clay_rigging_bridle/features/home_screen/breasting_line/breastin
 import 'package:clay_rigging_bridle/features/home_screen/cantivlever/cantivlever.dart';
 import 'package:clay_rigging_bridle/features/home_screen/complex_udl/complex_udl.dart';
 import 'package:clay_rigging_bridle/features/home_screen/udl/udl.dart';
+import 'package:clay_rigging_bridle/features/home_screen/weight_shifting/weight_shifting.dart';
 import 'package:clay_rigging_bridle/utils/app_colors.dart';
 import 'package:clay_rigging_bridle/utils/app_text_styles.dart';
 import 'package:clay_rigging_bridle/utils/show_snackbar.dart';
@@ -150,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
         // Get.toNamed('/apexAndPoint');
         break;
       case 'Weight Shifting':
-        // Get.toNamed('/weightShifting');
+        Get.to(() => WeightShifting());
         break;
       case 'UDL':
         Get.to(() => UDL());
