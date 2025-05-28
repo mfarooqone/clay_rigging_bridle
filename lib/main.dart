@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:clay_rigging_bridle/common/controllers/preference_controller.dart';
 import 'package:clay_rigging_bridle/features/splash_screen/splash_screen.dart';
 import 'package:clay_rigging_bridle/firebase_options.dart';
+import 'package:clay_rigging_bridle/utils/app_labels.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -42,7 +43,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Rigging',
+      title: AppLabels.appName,
       debugShowCheckedModeBanner: false,
       // initialBinding: createBindings(context),
       navigatorObservers: [routeObserver],
