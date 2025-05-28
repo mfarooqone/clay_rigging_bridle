@@ -5,6 +5,7 @@ import 'package:clay_rigging_bridle/features/home_screen/cantivlever/cantivlever
 import 'package:clay_rigging_bridle/features/home_screen/complex_udl/complex_udl.dart';
 import 'package:clay_rigging_bridle/features/home_screen/information/information.dart';
 import 'package:clay_rigging_bridle/features/home_screen/udl/udl.dart';
+import 'package:clay_rigging_bridle/features/home_screen/unit_converter/unit_converter.dart';
 import 'package:clay_rigging_bridle/features/home_screen/weight_shifting/weight_shifting.dart';
 import 'package:clay_rigging_bridle/utils/app_text_styles.dart';
 import 'package:clay_rigging_bridle/utils/show_snackbar.dart';
@@ -124,6 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Get.to(() => BreastingLine());
         break;
       case 8:
+        Get.to(() => UnitConverter());
         break;
       default:
         showErrorMessage("Invalid screen selected");
