@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   ///
   ///
   ///
-  final controller = Get.put(HomeController());
+  final controller = Get.put(HomeController(), permanent: true);
 
   ///
   ///
