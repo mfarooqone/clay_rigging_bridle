@@ -1,5 +1,6 @@
 import 'package:clay_rigging_bridle/utils/app_text_styles.dart';
 import 'package:clay_rigging_bridle/widgets/arrow_back_button.dart';
+import 'package:clay_rigging_bridle/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 
 class UnitConverter extends StatefulWidget {
@@ -150,17 +151,16 @@ class _UnitConverterState extends State<UnitConverter> {
                       Row(
                         children: [
                           Expanded(
-                            child: ElevatedButton(
+                            child: PrimaryButton(
+                              title: "CONVERT",
                               onPressed: convertUnit,
-                              child: const Text("CONVERT"),
                             ),
                           ),
                           const SizedBox(width: 10),
                           Expanded(
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.red,
-                              ),
+                            child: PrimaryButton(
+                              backgroundColor: Colors.red,
+                              title: "RESET",
                               onPressed: () {
                                 aController.clear();
                                 setState(() {
@@ -169,7 +169,6 @@ class _UnitConverterState extends State<UnitConverter> {
                                   toUnit = null;
                                 });
                               },
-                              child: const Text("RESET"),
                             ),
                           ),
                         ],
