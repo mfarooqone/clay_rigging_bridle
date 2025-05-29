@@ -65,8 +65,6 @@ class _UDLState extends State<UDL> {
                         width: 70,
                         height: 25,
                         controller: aController,
-                        hintText: 'A',
-                        maxLength: 2,
                       ),
                     ),
                     Positioned(
@@ -76,8 +74,6 @@ class _UDLState extends State<UDL> {
                         width: 70,
                         height: 25,
                         controller: bController,
-                        hintText: 'B',
-                        maxLength: 2,
                       ),
                     ),
 
@@ -89,8 +85,8 @@ class _UDLState extends State<UDL> {
                         width: 70,
                         height: 20,
                         controller: w1Controller,
-                        hintText: 'W1',
-                        maxLength: 2,
+
+                        enable: false,
                       ),
                     ),
 
@@ -102,8 +98,8 @@ class _UDLState extends State<UDL> {
                         width: 70,
                         height: 20,
                         controller: w2Controller,
-                        hintText: 'W2',
-                        maxLength: 2,
+
+                        enable: false,
                       ),
                     ),
 
@@ -115,8 +111,6 @@ class _UDLState extends State<UDL> {
                         width: 70,
                         height: 25,
                         controller: beamController,
-                        hintText: 'Beam',
-                        maxLength: 2,
                       ),
                     ),
 
@@ -128,8 +122,6 @@ class _UDLState extends State<UDL> {
                         width: 70,
                         height: 25,
                         controller: totalWeightController,
-                        hintText: 'Total Weight',
-                        maxLength: 2,
                       ),
                     ),
 
@@ -141,8 +133,6 @@ class _UDLState extends State<UDL> {
                         width: 70,
                         height: 25,
                         controller: pointAController,
-                        hintText: 'Point A',
-                        maxLength: 2,
                       ),
                     ),
 
@@ -154,8 +144,6 @@ class _UDLState extends State<UDL> {
                         width: 70,
                         height: 25,
                         controller: pointBController,
-                        hintText: 'Point B',
-                        maxLength: 2,
                       ),
                     ),
 

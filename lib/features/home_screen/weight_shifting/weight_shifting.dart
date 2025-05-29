@@ -212,8 +212,6 @@ class _WeightShiftingState extends State<WeightShifting> {
                           width: 70,
                           height: 25,
                           controller: aController,
-                          hintText: 'A',
-                          maxLength: 3,
                         ),
                       ),
 
@@ -225,8 +223,6 @@ class _WeightShiftingState extends State<WeightShifting> {
                           width: 70,
                           height: 25,
                           controller: bController,
-                          hintText: 'B',
-                          maxLength: 3,
                         ),
                       ),
 
@@ -238,7 +234,7 @@ class _WeightShiftingState extends State<WeightShifting> {
                           width: 70,
                           height: 20,
                           controller: w1Controller,
-                          hintText: 'W1',
+
                           enable: false,
                           calculatedColor: w1FieldColor.value,
                         ),
@@ -252,7 +248,7 @@ class _WeightShiftingState extends State<WeightShifting> {
                           width: 70,
                           height: 20,
                           controller: w2Controller,
-                          hintText: 'W2',
+
                           enable: false,
                           calculatedColor: w2FieldColor.value,
                         ),
@@ -266,11 +262,10 @@ class _WeightShiftingState extends State<WeightShifting> {
                           width: 70,
                           height: 25,
                           controller: beamController,
-                          hintText: 'Beam',
+
                           onChanged: (val) {
                             _onBeamChanged();
                           },
-                          maxLength: 4,
                         ),
                       ),
 
@@ -282,11 +277,10 @@ class _WeightShiftingState extends State<WeightShifting> {
                           width: 70,
                           height: 25,
                           controller: pointAController,
-                          hintText: 'Point A',
+
                           onChanged: (val) {
                             _onPointAChanged();
                           },
-                          maxLength: 4,
                         ),
                       ),
 
@@ -298,11 +292,10 @@ class _WeightShiftingState extends State<WeightShifting> {
                           width: 70,
                           height: 25,
                           controller: pointBController,
-                          hintText: 'Point B',
+
                           onChanged: (val) {
                             _onPointBChanged();
                           },
-                          maxLength: 4,
                         ),
                       ),
 
@@ -314,8 +307,6 @@ class _WeightShiftingState extends State<WeightShifting> {
                           width: 70,
                           height: 25,
                           controller: totalWeightController,
-                          hintText: 'Total Wt',
-                          maxLength: 5,
                         ),
                       ),
                     ],
