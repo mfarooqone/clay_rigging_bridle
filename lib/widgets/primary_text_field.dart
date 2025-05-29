@@ -108,7 +108,7 @@ class PrimaryTextField extends StatelessWidget {
             ),
 
           Container(
-            // color: Colors.red.withValues(alpha: 0.3),
+            color: Colors.red.withValues(alpha: 0.3),
             width: width,
             height: height,
             child: AutoSizeTextField(
