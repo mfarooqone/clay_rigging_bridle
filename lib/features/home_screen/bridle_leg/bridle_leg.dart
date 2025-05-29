@@ -20,7 +20,6 @@ class _BridleLegState extends State<BridleLeg> {
   final atoXController = TextEditingController();
   final btoXController = TextEditingController();
   final iController = TextEditingController();
-  final iWeightController = TextEditingController();
   final l1Controller = TextEditingController();
   final l2Controller = TextEditingController();
 
@@ -134,19 +133,6 @@ class _BridleLegState extends State<BridleLeg> {
 
                           ///
                           Positioned(
-                            top: 208,
-                            left: 158,
-                            child: PrimaryTextField(
-                              width: 50,
-                              height: 20,
-                              controller: iWeightController,
-                              hintText: 'I Weight',
-                              maxLength: 2,
-                            ),
-                          ),
-
-                          ///
-                          Positioned(
                             top: 205,
                             left: 88,
                             child: PrimaryTextField(
@@ -199,7 +185,7 @@ class _BridleLegState extends State<BridleLeg> {
 
                           ///
                           Positioned(
-                            top: 422,
+                            top: 420,
                             left: 55,
                             child: PrimaryTextField(
                               width: 70,
@@ -212,7 +198,7 @@ class _BridleLegState extends State<BridleLeg> {
 
                           ///
                           Positioned(
-                            top: 422,
+                            top: 420,
                             left: 245,
                             child: PrimaryTextField(
                               width: 70,
