@@ -233,217 +233,222 @@ class _BridleApexState extends State<BridleApex> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Obx(
-        () => Scaffold(
-          resizeToAvoidBottomInset: false,
-          backgroundColor: Colors.white,
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                // ── header ──
-                SafeArea(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Row(
-                      children: [
-                        ArrowBackButton(),
-                        Spacer(),
-                        Text(
-                          "Bridle Apex and Point Position",
-                          style: AppTextStyle.titleSmall,
+        () => Stack(
+          children: [
+            Scaffold(
+              resizeToAvoidBottomInset: false,
+              backgroundColor: Colors.white,
+              body: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    // ── header ──
+                    SafeArea(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: Row(
+                          children: [
+                            ArrowBackButton(),
+                            Spacer(),
+                            Text(
+                              "Bridle Apex and Point Position",
+                              style: AppTextStyle.titleSmall,
+                            ),
+                            Spacer(),
+                            ArrowBackButton(color: Colors.transparent),
+                          ],
                         ),
-                        Spacer(),
-                        ArrowBackButton(color: Colors.transparent),
-                      ],
+                      ),
                     ),
-                  ),
-                ),
-                const SizedBox(height: 10),
+                    const SizedBox(height: 10),
 
-                // ── diagram & inputs ──
-                Center(
-                  child: Container(
-                    width: 360,
-                    height: 600,
-                    child: Stack(
-                      children: [
-                        Positioned.fill(
-                          child: Image.asset(AppAssets.bridleApex),
-                        ),
+                    // ── diagram & inputs ──
+                    Center(
+                      child: Container(
+                        width: 360,
+                        height: 600,
+                        child: Stack(
+                          children: [
+                            Positioned.fill(
+                              child: Image.asset(AppAssets.bridleApex),
+                            ),
 
-                        // A→B (you can still type full span if needed)
-                        Positioned(
-                          top: 65,
-                          left: 138,
-                          child: PrimaryTextField(
-                            width: 90,
-                            height: 25,
-                            controller: atoBController,
-                            onChanged: (v) {
-                              controller.isLoading.value = true;
-                              // reset X spans when full span changes
-                              atoXController.clear();
-                              btoXController.clear();
-                              controller.isLoading.value = false;
-                            },
-                          ),
-                        ),
+                            // A→B (you can still type full span if needed)
+                            Positioned(
+                              top: 65,
+                              left: 138,
+                              child: PrimaryTextField(
+                                width: 90,
+                                height: 25,
+                                controller: atoBController,
+                                onChanged: (v) {
+                                  controller.isLoading.value = true;
+                                  // reset X spans when full span changes
+                                  atoXController.clear();
+                                  btoXController.clear();
+                                  controller.isLoading.value = false;
+                                },
+                              ),
+                            ),
 
-                        // A→X
-                        Positioned(
-                          top: 138,
-                          left: 58,
-                          child: PrimaryTextField(
-                            width: 50,
-                            height: 25,
-                            controller: atoXController,
-                            onChanged: (v) {
-                              controller.isLoading.value = true;
-                              _onAtoXChanged(v);
-                              controller.isLoading.value = false;
-                            },
-                          ),
-                        ),
+                            // A→X
+                            Positioned(
+                              top: 138,
+                              left: 58,
+                              child: PrimaryTextField(
+                                width: 50,
+                                height: 25,
+                                controller: atoXController,
+                                onChanged: (v) {
+                                  controller.isLoading.value = true;
+                                  _onAtoXChanged(v);
+                                  controller.isLoading.value = false;
+                                },
+                              ),
+                            ),
 
-                        // B→X
-                        Positioned(
-                          top: 138,
-                          left: 262,
-                          child: PrimaryTextField(
-                            width: 50,
-                            height: 25,
-                            controller: btoXController,
-                            onChanged: (v) {
-                              controller.isLoading.value = true;
-                              _onBtoXChanged(v);
-                              controller.isLoading.value = false;
-                            },
-                          ),
-                        ),
+                            // B→X
+                            Positioned(
+                              top: 138,
+                              left: 262,
+                              child: PrimaryTextField(
+                                width: 50,
+                                height: 25,
+                                controller: btoXController,
+                                onChanged: (v) {
+                                  controller.isLoading.value = true;
+                                  _onBtoXChanged(v);
+                                  controller.isLoading.value = false;
+                                },
+                              ),
+                            ),
 
-                        // I (angle)
-                        Positioned(
-                          top: 165,
-                          left: 158,
-                          child: PrimaryTextField(
-                            width: 50,
-                            height: 25,
-                            controller: iController,
-                            enable: false,
-                            calculatedColor: angleFieldColor,
-                          ),
-                        ),
+                            // I (angle)
+                            Positioned(
+                              top: 165,
+                              left: 158,
+                              child: PrimaryTextField(
+                                width: 50,
+                                height: 25,
+                                controller: iController,
+                                enable: false,
+                                calculatedColor: angleFieldColor,
+                              ),
+                            ),
 
-                        // L1
-                        Positioned(
-                          top: 215,
-                          left: 88,
-                          child: PrimaryTextField(
-                            width: 50,
-                            height: 25,
-                            controller: l1Controller,
-                            enable: false,
-                            calculatedColor: l1FieldColor,
-                          ),
-                        ),
+                            // L1
+                            Positioned(
+                              top: 215,
+                              left: 88,
+                              child: PrimaryTextField(
+                                width: 50,
+                                height: 25,
+                                controller: l1Controller,
+                                enable: false,
+                                calculatedColor: l1FieldColor,
+                              ),
+                            ),
 
-                        // L2
-                        Positioned(
-                          top: 215,
-                          left: 233,
-                          child: PrimaryTextField(
-                            width: 50,
-                            height: 25,
-                            controller: l2Controller,
-                            enable: false,
-                            calculatedColor: l2FieldColor,
-                          ),
-                        ),
+                            // L2
+                            Positioned(
+                              top: 215,
+                              left: 233,
+                              child: PrimaryTextField(
+                                width: 50,
+                                height: 25,
+                                controller: l2Controller,
+                                enable: false,
+                                calculatedColor: l2FieldColor,
+                              ),
+                            ),
 
-                        // A Height
-                        Positioned(
-                          top: 300,
-                          left: 28,
-                          child: PrimaryTextField(
-                            width: 80,
-                            height: 25,
-                            controller: aHeightController,
-                          ),
-                        ),
+                            // A Height
+                            Positioned(
+                              top: 300,
+                              left: 28,
+                              child: PrimaryTextField(
+                                width: 80,
+                                height: 25,
+                                controller: aHeightController,
+                              ),
+                            ),
 
-                        // B Height
-                        Positioned(
-                          top: 300,
-                          left: 252,
-                          child: PrimaryTextField(
-                            width: 80,
-                            height: 25,
-                            controller: bHeightController,
-                          ),
-                        ),
+                            // B Height
+                            Positioned(
+                              top: 300,
+                              left: 252,
+                              child: PrimaryTextField(
+                                width: 80,
+                                height: 25,
+                                controller: bHeightController,
+                              ),
+                            ),
 
-                        // WLL
-                        Positioned(
-                          top: 433,
-                          left: 55,
-                          child: PrimaryTextField(
-                            width: 70,
-                            height: 25,
-                            controller: wllController,
-                            calculatedColor: wllFieldColor,
-                          ),
-                        ),
+                            // WLL
+                            Positioned(
+                              top: 433,
+                              left: 55,
+                              child: PrimaryTextField(
+                                width: 70,
+                                height: 25,
+                                controller: wllController,
+                                calculatedColor: wllFieldColor,
+                              ),
+                            ),
 
-                        // Apex Height
-                        Positioned(
-                          top: 433,
-                          left: 245,
-                          child: PrimaryTextField(
-                            width: 70,
-                            height: 25,
-                            controller: apexHeightController,
-                            onChanged: (v) {
-                              controller.isLoading.value = true;
-                              _onApexHeightChanged(v);
-                              controller.isLoading.value = false;
-                            },
-                          ),
-                        ),
+                            // Apex Height
+                            Positioned(
+                              top: 433,
+                              left: 245,
+                              child: PrimaryTextField(
+                                width: 70,
+                                height: 25,
+                                controller: apexHeightController,
+                                onChanged: (v) {
+                                  controller.isLoading.value = true;
+                                  _onApexHeightChanged(v);
+                                  controller.isLoading.value = false;
+                                },
+                              ),
+                            ),
 
-                        // Weight
-                        Positioned(
-                          top: 470,
-                          left: 150,
-                          child: PrimaryTextField(
-                            width: 70,
-                            height: 25,
-                            controller: totalWeightController,
-                          ),
+                            // Weight
+                            Positioned(
+                              top: 470,
+                              left: 150,
+                              child: PrimaryTextField(
+                                width: 70,
+                                height: 25,
+                                controller: totalWeightController,
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
-                  ),
-                ),
 
-                const SizedBox(height: 10),
-                PrimaryButton(
-                  title: "Calculate",
-                  enabled: isCalculateEnabled,
-                  onPressed: () {
-                    FocusManager.instance.primaryFocus?.unfocus();
-                    controller.isLoading.value = true;
-                    _onCalculate();
-                    controller.isLoading.value = false;
-                  },
+                    const SizedBox(height: 10),
+                    PrimaryButton(
+                      title: "Calculate",
+                      enabled: isCalculateEnabled,
+                      onPressed: () {
+                        FocusManager.instance.primaryFocus?.unfocus();
+                        controller.isLoading.value = true;
+                        _onCalculate();
+                        controller.isLoading.value = false;
+                      },
+                    ),
+                    const SizedBox(height: 10),
+                    PrimaryButton(
+                      title: "Reset",
+                      backgroundColor: Colors.red,
+                      onPressed: _onReset,
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 10),
-                PrimaryButton(
-                  title: "Reset",
-                  backgroundColor: Colors.red,
-                  onPressed: _onReset,
-                ),
-              ],
+              ),
             ),
-          ),
+            if (controller.isLoading.value) SizedBox(),
+          ],
         ),
       ),
     );
