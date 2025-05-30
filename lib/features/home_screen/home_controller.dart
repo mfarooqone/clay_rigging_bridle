@@ -12,6 +12,7 @@ class HomeController extends GetxController {
         AppAssets.weightShiftingIcon,
         AppAssets.udlIcon,
         AppAssets.complexUDLIcon,
+        AppAssets.cantivleverUDLIcon,
         AppAssets.cantivleverIcon,
         AppAssets.breastingLineIcon,
         AppAssets.unitConverterIcon,

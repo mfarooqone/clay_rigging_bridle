@@ -4,14 +4,14 @@ import 'package:clay_rigging_bridle/widgets/arrow_back_button.dart';
 import 'package:clay_rigging_bridle/widgets/primary_text_field.dart';
 import 'package:flutter/material.dart';
 
-class Cantivlever extends StatefulWidget {
-  const Cantivlever({Key? key}) : super(key: key);
+class CantivleverUDL extends StatefulWidget {
+  const CantivleverUDL({Key? key}) : super(key: key);
 
   @override
-  State<Cantivlever> createState() => _CantivleverState();
+  State<CantivleverUDL> createState() => _CantivleverUDLState();
 }
 
-class _CantivleverState extends State<Cantivlever> {
+class _CantivleverUDLState extends State<CantivleverUDL> {
   final aController = TextEditingController();
   final bController = TextEditingController();
   final w1Controller = TextEditingController();
@@ -39,7 +39,7 @@ class _CantivleverState extends State<Cantivlever> {
                   children: [
                     ArrowBackButton(),
                     Spacer(),
-                    Text("Cantivlever", style: AppTextStyle.titleSmall),
+                    Text("Cantivlever UDL", style: AppTextStyle.titleSmall),
                     Spacer(),
                     ArrowBackButton(color: Colors.transparent),
                   ],
@@ -55,7 +55,9 @@ class _CantivleverState extends State<Cantivlever> {
                 height: 600, // Fixed height for consistent layout
                 child: Stack(
                   children: [
-                    Positioned.fill(child: Image.asset(AppAssets.cantivlever)),
+                    Positioned.fill(
+                      child: Image.asset(AppAssets.cantivleverUDL),
+                    ),
 
                     /// Exact manual placements
                     Positioned(
