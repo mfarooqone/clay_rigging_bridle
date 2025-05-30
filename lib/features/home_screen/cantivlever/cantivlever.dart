@@ -184,7 +184,7 @@ class _CantivleverState extends State<Cantivlever> {
 
                     // A WLL
                     Positioned(
-                      top: 84,
+                      top: 86,
                       left: 15,
                       child: PrimaryTextField(
                         width: 70,
@@ -197,7 +197,7 @@ class _CantivleverState extends State<Cantivlever> {
 
                     // B WLL
                     Positioned(
-                      top: 84,
+                      top: 86,
                       left: 165,
                       child: PrimaryTextField(
                         width: 70,
@@ -216,7 +216,6 @@ class _CantivleverState extends State<Cantivlever> {
                         width: 70,
                         height: 20,
                         controller: w1Controller,
-
                         enable: false,
                         calculatedColor: w1FieldColor,
                       ),
@@ -230,7 +229,6 @@ class _CantivleverState extends State<Cantivlever> {
                         width: 70,
                         height: 20,
                         controller: w2Controller,
-
                         enable: false,
                         calculatedColor: w2FieldColor,
                       ),
@@ -238,7 +236,7 @@ class _CantivleverState extends State<Cantivlever> {
 
                     // A→B
                     Positioned(
-                      top: 272,
+                      top: 275,
                       left: 75,
                       child: PrimaryTextField(
                         width: 70,
@@ -252,7 +250,7 @@ class _CantivleverState extends State<Cantivlever> {
 
                     // B→W
                     Positioned(
-                      top: 272,
+                      top: 275,
                       left: 244,
                       child: PrimaryTextField(
                         width: 70,
