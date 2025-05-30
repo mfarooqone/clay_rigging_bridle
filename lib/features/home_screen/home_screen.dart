@@ -1,6 +1,7 @@
 import 'package:clay_rigging_bridle/features/home_screen/breasting_line/breasting_line.dart';
 import 'package:clay_rigging_bridle/features/home_screen/bridle_apex/bridle_apex.dart';
 import 'package:clay_rigging_bridle/features/home_screen/bridle_leg/bridle_leg.dart';
+import 'package:clay_rigging_bridle/features/home_screen/cantivlever/cantivlever.dart';
 import 'package:clay_rigging_bridle/features/home_screen/cantivlever_udl/cantivlever_udl.dart';
 import 'package:clay_rigging_bridle/features/home_screen/complex_udl/complex_udl.dart';
 import 'package:clay_rigging_bridle/features/home_screen/information/information.dart';
@@ -119,12 +120,14 @@ class _HomeScreenState extends State<HomeScreen> {
         Get.to(() => ComplexUDL());
         break;
       case 6:
+        Get.to(() => Cantivlever());
+      case 7:
         Get.to(() => CantivleverUDL());
         break;
-      case 7:
+      case 8:
         Get.to(() => BreastingLine());
         break;
-      case 8:
+      case 9:
         Get.to(() => UnitConverter());
         break;
       default:
