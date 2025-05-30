@@ -1,5 +1,6 @@
 import 'package:clay_rigging_bridle/utils/app_text_styles.dart';
 import 'package:clay_rigging_bridle/widgets/arrow_back_button.dart';
+import 'package:clay_rigging_bridle/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 
 class InformationScreen extends StatelessWidget {
@@ -67,26 +68,11 @@ class InformationScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
-            child: SizedBox(
-              width: double.infinity,
-              height: 50,
-              child: ElevatedButton(
-                onPressed: () => Navigator.pop(context),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                child: const Text(
-                  'Close',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+            child: PrimaryButton(
+              title: "Close",
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
           ),
         ],
