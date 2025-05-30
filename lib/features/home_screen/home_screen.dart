@@ -121,6 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
         break;
       case 6:
         Get.to(() => Cantivlever());
+        break;
       case 7:
         Get.to(() => CantivleverUDL());
         break;
