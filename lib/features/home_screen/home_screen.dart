@@ -8,8 +8,10 @@ import 'package:clay_rigging_bridle/features/home_screen/information/information
 import 'package:clay_rigging_bridle/features/home_screen/udl/udl.dart';
 import 'package:clay_rigging_bridle/features/home_screen/unit_converter/unit_converter.dart';
 import 'package:clay_rigging_bridle/features/home_screen/weight_shifting/weight_shifting.dart';
+import 'package:clay_rigging_bridle/utils/app_labels.dart';
 import 'package:clay_rigging_bridle/utils/app_text_styles.dart';
 import 'package:clay_rigging_bridle/utils/show_snackbar.dart';
+import 'package:clay_rigging_bridle/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,114 +24,116 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  ///
-  ///
-  ///
   final controller = Get.put(HomeController(), permanent: true);
 
-  ///
-  ///
-  ///
+  @override
+  void initState() {
+    super.initState();
+    controller.selectedIndex.value = 0;
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final height = size.height;
     final width = size.width;
+
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Obx(() {
-        return Container(
-          height: height,
-          width: width,
-          child: SafeArea(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: width * 0.1),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: width * 0.1),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: size.height * 0.05),
+              Text(AppLabels.appName, style: AppTextStyle.headlineMedium),
+              SizedBox(height: size.height * 0.01),
+              Text(
+                'Welcome to the ultimate tool for calculating rigging bridle load distributions with precision and confidence',
+                style: AppTextStyle.bodyMedium,
+              ),
+              SizedBox(height: size.height * 0.05),
 
-                children: [
-                  SizedBox(height: height * 0.05),
+              Text('Calculator', style: AppTextStyle.bodyMedium),
+              SizedBox(height: size.height * 0.01),
 
-                  ///
-                  ///
-                  ///
-                  Text(
-                    'Entertainment Rigging Calculator+',
-                    style: AppTextStyle.headlineSmall,
-                  ),
-
-                  ///
-                  ///
-                  ///
-                  ///
-                  Expanded(
-                    child: GridView.builder(
-                      shrinkWrap: true,
-
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      itemCount: controller.screensList.length,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            childAspectRatio: 1,
-                            crossAxisSpacing: 1,
-                            mainAxisSpacing: 1,
-                          ),
-                      itemBuilder: (context, index) {
-                        final item = controller.screensList[index];
-
-                        return GestureDetector(
-                          onTap: () {
-                            navigateToScreen(index: index);
-                          },
-                          child: Container(
-                            width: 122,
-                            height: 122,
-                            child: Image.asset(item, fit: BoxFit.contain),
-                          ),
-                        );
-                      },
+              /// Wrap in Obx so that the dropdown rebuilds when selectedIndex changes
+              Obx(() {
+                return DropdownButtonFormField<String>(
+                  value: controller.screensList[controller.selectedIndex.value],
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 8,
                     ),
                   ),
-                ],
+                  items:
+                      controller.screensList.map((name) {
+                        return DropdownMenuItem<String>(
+                          value: name,
+                          child: Text(name, style: AppTextStyle.bodyMedium),
+                        );
+                      }).toList(),
+                  onChanged: (String? newValue) {
+                    if (newValue == null) return;
+                    final index = controller.screensList.indexOf(newValue);
+                    controller.selectedIndex.value = index;
+                  },
+                );
+              }),
+
+              Spacer(),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: PrimaryButton(
+                  title: "Next",
+                  onPressed: () {
+                    navigateToScreen(index: controller.selectedIndex.value);
+                  },
+                ),
               ),
-            ),
+              SizedBox(height: size.height * 0.05),
+            ],
           ),
-        );
-      }),
+        ),
+      ),
     );
   }
 
   void navigateToScreen({required int index}) {
     switch (index) {
       case 0:
-        Get.to(() => InformationScreen());
+        Get.to(() => const InformationScreen());
+        break;
       case 1:
-        Get.to(() => BridleLeg());
+        Get.to(() => const BridleLeg());
         break;
       case 2:
-        Get.to(() => BridleApex());
+        Get.to(() => const BridleApex());
         break;
       case 3:
-        Get.to(() => WeightShifting());
+        Get.to(() => const WeightShifting());
         break;
       case 4:
-        Get.to(() => UDL());
+        Get.to(() => const UDL());
         break;
       case 5:
-        Get.to(() => ComplexUDL());
+        Get.to(() => const ComplexUDL());
         break;
       case 6:
-        Get.to(() => Cantivlever());
+        Get.to(() => const Cantivlever());
         break;
       case 7:
-        Get.to(() => CantivleverUDL());
+        Get.to(() => const CantivleverUDL());
         break;
       case 8:
-        Get.to(() => BreastingLine());
+        Get.to(() => const BreastingLine());
         break;
       case 9:
-        Get.to(() => UnitConverter());
+        Get.to(() => const UnitConverter());
         break;
       default:
         showErrorMessage("Invalid screen selected");

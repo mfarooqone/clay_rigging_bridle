@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:clay_rigging_bridle/common/controllers/preference_controller.dart';
 import 'package:clay_rigging_bridle/features/splash_screen/splash_screen.dart';
 import 'package:clay_rigging_bridle/firebase_options.dart';
 import 'package:clay_rigging_bridle/utils/app_labels.dart';
@@ -31,10 +30,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final AppPreferencesController appPreferencesController = Get.put(
-    AppPreferencesController(),
-  );
-
   @override
   void initState() {
     super.initState();
